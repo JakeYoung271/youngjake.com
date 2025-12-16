@@ -91,7 +91,8 @@ const renderFavorites = (items: FavoriteEntry[]): React.ReactNode =>
       return <TreeView key={`${entry}-${index}`} title={entry} isFile />;
     }
 
-    const hasChildren = Array.isArray(entry.children) && entry.children.length > 0;
+    const children = entry.children ?? [];
+    const hasChildren = Array.isArray(children) && children.length > 0;
     const titleNode = entry.link ? (
       <a href={entry.link} target="_blank" rel="noreferrer">
         {entry.title}
@@ -102,7 +103,7 @@ const renderFavorites = (items: FavoriteEntry[]): React.ReactNode =>
 
     return (
       <TreeView key={`${entry.title}-${index}`} title={titleNode} isFile={!hasChildren} defaultValue={hasChildren}>
-        {hasChildren ? renderFavorites(entry.children) : null}
+        {hasChildren ? renderFavorites(children) : null}
       </TreeView>
     );
   });

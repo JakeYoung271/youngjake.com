@@ -1,0 +1,14 @@
+.body {
+  max-width: 120ch;
+  margin: 0 auto;
+  padding: clamp(16px, 4vw, 32px);
+  position: relative;
+}
+
+.pixel {
+  height: 1px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1px;
+}
